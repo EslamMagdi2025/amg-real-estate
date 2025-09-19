@@ -24,8 +24,9 @@ export async function GET(
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET!) as { userId: string }
 
+    const { id } = await context.params;
     const property = await prisma.property.findUnique({
-      where: { id: params.id },
+      where: { id },
       include: {
         images: true,
         _count: {
@@ -68,6 +69,7 @@ export async function PUT(
   context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     // Get token from cookie
     const token = request.cookies.get('auth-token')?.value
 
@@ -236,6 +238,7 @@ export async function DELETE(
     }
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET!) as { userId: string }
+    const params = await context.params
 
     // التحقق من وجود العقار وملكية المستخدم له
     const existingProperty = await prisma.property.findUnique({
@@ -307,6 +310,7 @@ export async function PATCH(
     }
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET!) as { userId: string }
+    const params = await context.params
 
     const { status } = await request.json()
 
