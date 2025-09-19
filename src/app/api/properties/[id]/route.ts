@@ -9,7 +9,7 @@ const prisma = new PrismaClient()
 // جلب عقار واحد
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
     // Get token from cookie
@@ -65,7 +65,7 @@ export async function GET(
 // تحديث عقار
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
     // Get token from cookie
@@ -222,7 +222,7 @@ export async function PUT(
 // حذف عقار
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
     // Get token from cookie
@@ -293,7 +293,7 @@ export async function DELETE(
 // تحديث حالة العقار فقط (PATCH)
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
     // Get token from cookie

@@ -6,7 +6,7 @@ import { logUserActivity } from '@/lib/activity-logger'
 // إضافة/إزالة عقار من المفضلة
 export async function POST(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
     // التحقق من المصادقة
@@ -16,6 +16,7 @@ export async function POST(
     }
 
     const userId = authResult.user!.id
+    const params = await context.params
     const propertyId = params.id
 
     // التحقق من وجود العقار
@@ -88,7 +89,7 @@ export async function POST(
 // إزالة عقار من المفضلة
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
     // التحقق من المصادقة
@@ -98,6 +99,7 @@ export async function DELETE(
     }
 
     const userId = authResult.user!.id
+    const params = await context.params
     const propertyId = params.id
 
     // التحقق من وجود المفضلة
@@ -161,7 +163,7 @@ export async function DELETE(
 // التحقق من وجود العقار في المفضلة
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
     // التحقق من المصادقة
@@ -171,6 +173,7 @@ export async function GET(
     }
 
     const userId = authResult.user!.id
+    const params = await context.params
     const propertyId = params.id
 
     const favorite = await prisma.favorite.findUnique({

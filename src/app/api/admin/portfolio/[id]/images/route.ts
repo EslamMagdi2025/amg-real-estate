@@ -59,9 +59,10 @@ export async function POST(
 // DELETE: حذف صورة من المعرض
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const { searchParams } = new URL(request.url)
     const imageId = searchParams.get('imageId')
 

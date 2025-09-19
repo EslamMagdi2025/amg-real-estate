@@ -4,9 +4,10 @@ import prisma from '@/lib/db'
 // API لجلب بيانات العقار للعرض العام
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const propertyId = params.id
 
     // جلب بيانات العقار مع الصور

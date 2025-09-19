@@ -5,9 +5,10 @@ import { logUserActivity } from '@/lib/activity-logger'
 // API لتسجيل مشاهدة عقار
 export async function POST(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const propertyId = params.id
     const clientIP = request.headers.get('x-forwarded-for') || 
                      request.headers.get('x-real-ip') || 
@@ -115,9 +116,10 @@ export async function POST(
 // API لجلب إحصائيات المشاهدة
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const propertyId = params.id
 
     const property = await prisma.property.findUnique({
