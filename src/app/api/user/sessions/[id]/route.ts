@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken'
 
 export async function DELETE(request: NextRequest, context: { params: Promise<{ id: string }> }) {
   try {
+    const params = await context.params
     console.log('🗑️ Terminating session:', params.id)
     
     // التحقق من الـ token
