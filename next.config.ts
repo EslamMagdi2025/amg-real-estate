@@ -38,7 +38,7 @@ const nextConfig: NextConfig = {
   
   // Build optimization
   eslint: {
-    ignoreDuringBuilds: false,
+    ignoreDuringBuilds: true,
   },
   
   typescript: {

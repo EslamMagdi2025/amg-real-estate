@@ -4,9 +4,10 @@ import { prisma } from '@/lib/db'
 // POST: إضافة صورة جديدة للمعرض
 export async function POST(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const params = await context.params
     const { id } = params
     const { url, publicId, order } = await request.json()
 
