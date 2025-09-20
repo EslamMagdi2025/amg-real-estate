@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   // Image optimization
   images: {
+    unoptimized: process.env.NODE_ENV === 'production', // Fix for Vercel images
     remotePatterns: [
       {
         protocol: 'https',

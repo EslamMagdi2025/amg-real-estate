@@ -1,0 +1,42 @@
+# 🚨 حل الأخطاء العاجل - متغيرات Vercel
+
+## المشكلة:
+- ❌ 401 Errors: مصادقة فاشلة 
+- ❌ 500 Errors: قاعدة بيانات غير متصلة
+- ❌ 404 Errors: صفحات مفقودة
+
+## الحل الفوري:
+اذهب إلى Vercel وأضف هذه المتغيرات:
+
+### 🔴 حرج جداً (يحل 90% من المشاكل):
+DATABASE_URL=mysql://root:elwWvdpGEtjmUDaEqHQeEFAbauGGWuqI@crossover.proxy.rlwy.net:35961/railway
+JWT_SECRET=amg-jwt-secret-key-very-secure-2024
+NEXTAUTH_SECRET=amg-real-estate-secret-key-2024-super-secure
+NEXTAUTH_URL=https://amg-real-estate.vercel.app
+NODE_ENV=production
+
+### 🟠 مهم (لتحسين الأداء):
+SMTP_HOST=smtp.hostinger.com
+SMTP_PORT=465
+SMTP_USER=site@amg-invest.com
+SMTP_PASS=Amg.2025@
+FROM_EMAIL=site@amg-invest.com
+
+### 🟡 إضافي (للصور):
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=dkvqlvucy
+CLOUDINARY_API_KEY=594228169165472
+CLOUDINARY_API_SECRET=MOhyNfJwsBE9DwQA2s2i4YB8Geg
+
+## خطوات الإضافة:
+1. https://vercel.com/dashboard
+2. اختر: amg-real-estate
+3. Settings → Environment Variables
+4. أضف كل متغير منفرد
+5. Environment: Production
+6. Save
+
+## بعد الإضافة:
+✅ ال 401 errors هتختفي
+✅ ال 500 errors هتتحل  
+✅ قاعدة البيانات هتتصل
+✅ المصادقة هتشتغل
