@@ -1,0 +1,38 @@
+🚨 إضافة عاجلة - متغيرات Vercel الآن!
+
+الأخطاء المستمرة:
+❌ 401 - مصادقة فاشلة
+❌ 500 - قاعدة بيانات غير متصلة
+
+=== أضف هذه المتغيرات على Vercel فوراً ===
+
+1. DATABASE_URL
+   mysql://root:elwWvdpGEtjmUDaEqHQeEFAbauGGWuqI@crossover.proxy.rlwy.net:35961/railway
+
+2. JWT_SECRET
+   amg-jwt-secret-key-very-secure-2024
+
+3. NEXTAUTH_SECRET
+   amg-real-estate-secret-key-2024-super-secure
+
+4. NEXTAUTH_URL
+   https://amg-real-estate.vercel.app
+
+5. NODE_ENV
+   production
+
+=== خطوات سريعة ===
+1. vercel.com/dashboard
+2. amg-real-estate project  
+3. Settings → Environment Variables
+4. Add Variable (كل واحد منفرد)
+5. Environment: Production
+6. Save
+
+=== بعد الإضافة ===
+✅ 401 errors ستختفي
+✅ 500 errors ستُحل  
+✅ قاعدة البيانات ستتصل
+✅ المصادقة ستعمل
+
+🔥 بدون هذه المتغيرات الموقع لن يعمل!
