@@ -7,7 +7,6 @@
       "maxDuration": 30
     }
   },
-  "skewProtection": true,
   "cleanUrls": true,
   "trailingSlash": false,
   "headers": [
